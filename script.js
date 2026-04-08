@@ -232,15 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function handleCreateAccount() {
-    const emailValue = email.value.trim();
-    const passwordValue = password.value.trim();
-    if (!emailValue || !passwordValue) {
-      showMessage('Digite email e senha para criar a conta.', 'error');
-      return;
-    }
-
-    saveAccount({ email: emailValue, password: passwordValue });
-    showMessage('Conta criada localmente! Agora use esses dados para entrar.', 'success');
+    window.location.href = 'register.html';
   }
 
   function coverEyes() {
