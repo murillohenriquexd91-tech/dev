@@ -1,15 +1,20 @@
-# What is this?
+# Projeto de Tela de Login Animada
 
-The github.dev web-based editor is a lightweight editing experience that runs entirely in your browser. You can navigate files and source code repositories from GitHub, and make and commit code changes.
+Este projeto implementa uma tela de login animada com SVG e GSAP.
 
-There are two ways to go directly to a VS Code environment in your browser and start coding:
+## Arquivos
 
-* Press the . key on any repository or pull request.
-* Swap `.com` with `.dev` in the URL. For example, this repo https://github.com/github/dev becomes http://github.dev/github/dev
+- `index.html` — estrutura da página e do formulário
+- `styles.css` — estilos para o layout da tela de login
+- `script.js` — código de animação para a face e os braços do personagem
 
-Preview the gif below to get a quick demo of github.dev in action.
+## Como rodar
 
-![github dev](https://user-images.githubusercontent.com/856858/130119109-4769f2d7-9027-4bc4-a38c-10f297499e8f.gif)
+1. Abra `index.html` no navegador.
+2. Caso esteja usando o VS Code, instale a extensão Live Server e abra o arquivo com ela.
 
-# Why?
-It’s a quick way to edit and navigate code. It's especially useful if you want to edit multiple files at a time or take advantage of all the powerful code editing features of Visual Studio Code when making a quick change. For more information, see our [documentation](https://github.co/codespaces-editor-help).
+## Funcionamento
+
+- O personagem olha para o cursor do e-mail enquanto você digita.
+- Quando o campo de senha recebe foco, os braços cobrem os olhos.
+- O formato da boca muda quando você digita um endereço de e-mail válido.

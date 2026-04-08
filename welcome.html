@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bem-vindo</title>
+  <style>
+    :root {
+      --darkBlue: #217093;
+      --medBlue: #4eb8dd;
+      --lightBlue: #ddf1fa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Source Sans Pro', Arial, sans-serif;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #eff3f4 0%, #d6e9f2 100%);
+      color: #294766;
+      padding: 1rem;
+    }
+    .welcome-card {
+      width: min(460px, 100%);
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 32px 80px rgba(21, 62, 105, 0.16);
+    }
+    h1 {
+      margin: 0 0 0.75rem;
+      color: var(--darkBlue);
+      font-size: 2.25rem;
+    }
+    p {
+      margin: 0 0 1.5rem;
+      color: #4b647b;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 10px;
+      border: none;
+      background: var(--medBlue);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:hover { background: var(--darkBlue); }
+  </style>
+</head>
+<body>
+  <div class="welcome-card">
+    <h1>Bem-vindo!</h1>
+    <p id="welcomeText">Você entrou com sucesso.</p>
+    <button id="backButton">Voltar para login</button>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    const welcomeText = document.getElementById('welcomeText');
+    if (email) {
+      welcomeText.textContent = `Olá, ${email}! Você está logado.`;
+    }
+    document.getElementById('backButton').addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
