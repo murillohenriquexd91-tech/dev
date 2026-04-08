@@ -66,7 +66,12 @@
     const email = params.get('email');
     const welcomeText = document.getElementById('welcomeText');
     if (email) {
-      welcomeText.textContent = `Olá, ${email}! Você está logado.`;
+      const account = JSON.parse(localStorage.getItem('demoLoginAccount') || '{}');
+      if (account.fullName) {
+        welcomeText.textContent = `Olá, ${account.fullName}! Você está logado com ${email} de ${account.location}.`;
+      } else {
+        welcomeText.textContent = `Olá, ${email}! Você está logado.`;
+      }
     }
     document.getElementById('backButton').addEventListener('click', () => {
       window.location.href = 'index.html';

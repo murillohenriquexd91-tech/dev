@@ -1,20 +1,25 @@
 # Projeto de Tela de Login Animada
 
-Este projeto implementa uma tela de login animada com SVG e GSAP.
+Este projeto implementa uma tela de login animada com SVG e GSAP, incluindo criação de conta e validação local.
 
 ## Arquivos
 
-- `index.html` — estrutura da página e do formulário
-- `styles.css` — estilos para o layout da tela de login
-- `script.js` — código de animação para a face e os braços do personagem
+- `index.html` — tela de login principal
+- `styles.css` — estilos para o layout
+- `script.js` — animações e lógica de login
+- `register.html` — formulário de criação de conta
+- `register.js` — lógica para salvar nova conta
+- `welcome.html` — página de boas-vindas após login
 
 ## Como rodar
 
-1. Abra `index.html` no navegador.
-2. Caso esteja usando o VS Code, instale a extensão Live Server e abra o arquivo com ela.
+1. Abra `index.html` no navegador ou use um servidor local.
+2. Use a conta de teste: `test@example.com` / `123456`
+3. Ou clique em "Criar conta" para registrar uma nova conta.
 
-## Funcionamento
+## Funcionalidades
 
-- O personagem olha para o cursor do e-mail enquanto você digita.
-- Quando o campo de senha recebe foco, os braços cobrem os olhos.
-- O formato da boca muda quando você digita um endereço de e-mail válido.
+- Animações SVG no rosto do personagem
+- Validação de login local
+- Criação de conta com nome, e-mail, localidade e senha
+- Página de boas-vindas personalizada
