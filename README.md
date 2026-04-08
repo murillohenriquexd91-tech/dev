@@ -9,7 +9,9 @@ Este projeto implementa uma tela de login animada com SVG e GSAP, incluindo cria
 - `script.js` — animações e lógica de login
 - `register.html` — formulário de criação de conta
 - `register.js` — lógica para salvar nova conta
-- `welcome.html` — página de boas-vindas após login
+- `apps.html` — página de aplicativos após login
+- `json-converter.html` — aplicativo conversor de JSON
+- `welcome.html` — página de boas-vindas (mantida para compatibilidade)
 
 ## Como rodar
 
@@ -22,7 +24,8 @@ Este projeto implementa uma tela de login animada com SVG e GSAP, incluindo cria
 - **Animações SVG**: O rosto do personagem reage aos inputs (olhos seguem o cursor, boca muda com e-mail, braços cobrem olhos na senha).
 - **Validação de login local**: Verifica credenciais salvas no localStorage do navegador.
 - **Criação de conta**: Formulário separado para registrar nome completo, e-mail, localidade e senha.
-- **Página de boas-vindas**: Mostra mensagem personalizada com nome e localidade após login.
+- **Página de aplicativos**: Dashboard com acesso a ferramentas após login.
+- **Conversor JSON**: Ferramenta para converter JSON para padrão da API (camelCase, conversão de valores).
 
 ## Como usar
 
@@ -36,5 +39,12 @@ Este projeto implementa uma tela de login animada com SVG e GSAP, incluindo cria
 - Preencha nome completo, e-mail, localidade e senha.
 - Clique em "Criar Conta" para salvar e voltar ao login.
 
-### Boas-vindas
-- Após login autorizado, redireciona para `welcome.html` com mensagem personalizada.
+### Aplicativos
+- Após login autorizado, redireciona para `apps.html` com dashboard de aplicativos.
+- Clique no cartão "Conversor JSON" para abrir a ferramenta.
+
+### Conversor JSON
+- Cole ou digite JSON no campo de entrada.
+- Clique em "Converter" para transformar para camelCase e ajustar valores.
+- Use "Baixar JSON" para salvar o resultado como arquivo.
+- Use "Copiar JSON" para copiar para a área de transferência.
