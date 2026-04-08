@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aplicativos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="apps-container">
+    <div class="welcome-card">
+      <h1 id="welcomeTitle">Bem-vindo!</h1>
+      <p id="welcomeText">Você está logado. Escolha um aplicativo abaixo.</p>
+      <div class="apps-grid">
+        <div class="app-card">
+          <h3>Conversor JSON</h3>
+          <p>Converte JSON para o padrão da API, ajustando chaves e valores.</p>
+          <button onclick="openJsonConverter()">Abrir</button>
+        </div>
+        <!-- Adicione mais apps aqui -->
+      </div>
+      <button id="logout" class="secondary">Sair</button>
+    </div>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get('email');
+    const welcomeTitle = document.getElementById('welcomeTitle');
+    const welcomeText = document.getElementById('welcomeText');
+    const logoutButton = document.getElementById('logout');
+
+    if (email) {
+      const account = JSON.parse(localStorage.getItem('demoLoginAccount') || '{}');
+      if (account.fullName) {
+        welcomeTitle.textContent = `Olá, ${account.fullName}!`;
+        welcomeText.textContent = `Você está logado com ${email} de ${account.location}. Escolha um aplicativo.`;
+      } else {
+        welcomeTitle.textContent = `Olá, ${email}!`;
+        welcomeText.textContent = 'Você está logado. Escolha um aplicativo abaixo.';
+      }
+    }
+
+    function openJsonConverter() {
+      window.location.href = 'json-converter.html';
+    }
+
+    logoutButton.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

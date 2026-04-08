@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const account = getCurrentAccount();
     if (emailValue === account.email && passwordValue === account.password) {
-      window.location.href = `welcome.html?email=${encodeURIComponent(emailValue)}`;
+      window.location.href = `apps.html?email=${encodeURIComponent(emailValue)}`;
       return;
     }
 

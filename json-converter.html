@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conversor JSON Invoice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="json-converter-container">
+    <div class="converter-card">
+      <h1>Conversor de JSON para padrão da API</h1>
+
+      <div class="input-group">
+        <label for="input">JSON original</label>
+        <textarea id="input" placeholder="Cole seu JSON aqui..."></textarea>
+      </div>
+
+      <div class="button-row">
+        <button onclick="convertJson()">Converter</button>
+        <button class="secondary" onclick="downloadJson()">Baixar JSON</button>
+        <button class="copy" onclick="copyJson()">Copiar JSON</button>
+        <button class="back" onclick="goBack()">Voltar</button>
+      </div>
+
+      <div id="error" class="message error"></div>
+
+      <div class="input-group">
+        <label for="output">JSON ajustado</label>
+        <textarea id="output" readonly placeholder="Resultado aparecerá aqui..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toCamelCase(key) {
+      return key.replace(/_([a-z])/g, (_, char) => char.toUpperCase());
+    }
+
+    function convertObject(obj) {
+      if (Array.isArray(obj)) {
+        return obj.map(item => convertObject(item));
+      }
+
+      if (obj !== null && typeof obj === "object") {
+        const newObj = {};
+
+        for (const key in obj) {
+          const newKey = toCamelCase(key);
+          let value = convertObject(obj[key]);
+
+          // converter value string para number
+          if (newKey === "value" && typeof value === "string" && !isNaN(value)) {
+            value = Number(value);
+          }
+
+          newObj[newKey] = value;
+        }
+
+        return newObj;
+      }
+
+      return obj;
+    }
+
+    function convertJson() {
+      const errorEl = document.getElementById("error");
+      const input = document.getElementById("input").value;
+      const output = document.getElementById("output");
+
+      errorEl.textContent = "";
+      output.value = "";
+
+      try {
+        const parsed = JSON.parse(input);
+        const converted = convertObject(parsed);
+        output.value = JSON.stringify(converted, null, 2);
+      } catch (e) {
+        errorEl.textContent = "JSON inválido: " + e.message;
+      }
+    }
+
+    function downloadJson() {
+      const content = document.getElementById("output").value;
+
+      if (!content.trim()) {
+        alert("Nada para baixar. Converta um JSON primeiro.");
+        return;
+      }
+
+      const blob = new Blob([content], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "json_ajustado.json";
+      a.click();
+
+      URL.revokeObjectURL(url);
+    }
+
+    function copyJson() {
+      const output = document.getElementById("output");
+      const text = output.value;
+
+      if (!text.trim()) {
+        alert("Nada para copiar. Converta um JSON primeiro.");
+        return;
+      }
+
+      navigator.clipboard.writeText(text)
+        .then(() => {
+          alert("JSON copiado com sucesso! 🚀");
+        })
+        .catch(() => {
+          alert("Erro ao copiar. Tente manualmente.");
+        });
+    }
+
+    function goBack() {
+      window.location.href = 'apps.html';
+    }
+  </script>
+</body>
+</html>
