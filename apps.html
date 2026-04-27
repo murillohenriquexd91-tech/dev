@@ -20,6 +20,11 @@
           <p>Converte JSON para o padrão da API, ajustando chaves e valores.</p>
           <button onclick="openJsonConverter()">Abrir</button>
         </div>
+        <div class="app-card">
+          <h3>Consultar Passagem</h3>
+          <p>Busque passagens aéreas informando origem, destino, datas e quantidade de pessoas.</p>
+          <button onclick="openFlightSearch()">Abrir</button>
+        </div>
         <!-- Adicione mais apps aqui -->
       </div>
       <button id="logout" class="secondary">Sair</button>
@@ -45,6 +50,10 @@
 
     function openJsonConverter() {
       window.location.href = 'json-converter.html';
+    }
+
+    function openFlightSearch() {
+      window.location.href = 'flight-search.html';
     }
 
     logoutButton.addEventListener('click', () => {

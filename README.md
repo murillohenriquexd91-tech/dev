@@ -11,6 +11,8 @@ Este projeto implementa uma tela de login animada com SVG e GSAP, incluindo cria
 - `register.js` — lógica para salvar nova conta
 - `apps.html` — página de aplicativos após login
 - `json-converter.html` — aplicativo conversor de JSON
+- `flight-search.html` — aplicativo de consulta de passagens aéreas
+- `flight-search.js` — lógica para busca simulada de voos
 - `welcome.html` — página de boas-vindas (mantida para compatibilidade)
 
 ## Como rodar
@@ -26,6 +28,7 @@ Este projeto implementa uma tela de login animada com SVG e GSAP, incluindo cria
 - **Criação de conta**: Formulário separado para registrar nome completo, e-mail, localidade e senha.
 - **Página de aplicativos**: Dashboard com acesso a ferramentas após login.
 - **Conversor JSON**: Ferramenta para converter JSON para padrão da API (camelCase, conversão de valores).
+- **Consulta de Passagens**: Ferramenta para buscar passagens aéreas simuladas, com filtros de origem, destino, datas e quantidade de pessoas.
 
 ## Como usar
 
@@ -42,9 +45,16 @@ Este projeto implementa uma tela de login animada com SVG e GSAP, incluindo cria
 ### Aplicativos
 - Após login autorizado, redireciona para `apps.html` com dashboard de aplicativos.
 - Clique no cartão "Conversor JSON" para abrir a ferramenta.
+- Clique no cartão "Consultar Passagem" para abrir a busca de voos.
 
 ### Conversor JSON
 - Cole ou digite JSON no campo de entrada.
 - Clique em "Converter" para transformar para camelCase e ajustar valores.
 - Use "Baixar JSON" para salvar o resultado como arquivo.
 - Use "Copiar JSON" para copiar para a área de transferência.
+
+### Consulta de Passagens
+- Preencha os campos: Origem, Destino, Data de Ida, Data de Volta (opcional) e Quantidade de Pessoas.
+- Clique em "Buscar Passagens" para simular a busca.
+- Visualize os resultados com opções de voos, horários, durações e preços.
+- Clique em "Selecionar" para escolher uma passagem (funcionalidade mockada).
