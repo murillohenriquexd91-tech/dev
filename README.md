@@ -1,4 +1,4 @@
-# Projeto de Tela de Login Animada
+# Projeto de Tela de Login Animada V2
 
 Este projeto implementa uma tela de login animada com SVG e GSAP, incluindo criação de conta e validação local.
 
